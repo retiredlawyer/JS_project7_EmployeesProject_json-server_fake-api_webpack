@@ -1,0 +1,46 @@
+{
+  "employees": [
+    {
+      "name": "Lalegül",
+      "department": "Kimya",
+      "salary": 3200,
+      "id": 1
+    },
+    {
+      "name": "Yunus Emre",
+      "department": "Dergâh",
+      "salary": 0,
+      "id": 3
+    },
+    {
+      "name": "Hasan",
+      "department": "Baro",
+      "salary": 5,
+      "id": 4
+    },
+    {
+      "name": "Rumî",
+      "department": "Horasan",
+      "salary": 3,
+      "id": 6
+    },
+    {
+      "name": "Yaman Lazerci",
+      "department": "Elektrik",
+      "salary": 3550,
+      "id": 7
+    },
+    {
+      "name": "Haşin Mezarcı",
+      "department": "Mevtiyet",
+      "salary": 50000,
+      "id": 8
+    },
+    {
+      "name": "Kamil Kaman",
+      "department": "Basın",
+      "salary": 16000,
+      "id": 9
+    }
+  ]
+}

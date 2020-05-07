@@ -22,7 +22,6 @@ export class Request {
         const responseData = await response.json();
 
         return responseData;
-
     }
 
     async put(id,data){

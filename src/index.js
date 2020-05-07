@@ -16,27 +16,6 @@ const ui = new UI();
 
 let updateState = null;
 
-/*               // REQUEST DENEMELERİ
-request.get()
-.then(employees => console.log(employees))
-.catch(err => console.error(err));
-
-request.post({"name": "Hasan","department": "Baro","salary": "ÜçKağıt"})
-.then(response => console.log(response))
-.catch(err => console.error(err));
-
-request.put(1,{
-    "name": "Babageldi",
-    "department": "Genetik",
-    "salary": 150000 })
-.then(response => console.log(response))
-.catch(err => console.error(err));
-
-request.delete(2)
-.then(response => console.log(response))
-.catch(err => console.error(err));
-*/
-
 eventListeners();
 
 function eventListeners(){
@@ -47,18 +26,15 @@ function eventListeners(){
 }
 
 function updateOrDelete(e){
-
     if (e.target.id === "delete-employee") {
         deleteEmployee(e.target);
     }
     else if (e.target.id === "update-employee") {
         updateEmployeeController(e.target.parentElement.parentElement);
     }
-
 }
 
 function addEmployee(e){
-
     const employeeName = nameInput.value.trim();
     const departmentName = departmentInput.value.trim();
     const employeeSalary = Number(salaryInput.value.trim());
@@ -67,31 +43,23 @@ function addEmployee(e){
         alert("Lütfen tüm alanları doldurunuz!");
     }
     else {
-
         request.post({"name":employeeName,"department":departmentName,"salary":employeeSalary})
         .then(newEmployee => {
             ui.addNewEmployeeToUI(newEmployee);
             ui.displayMessage("success","Çalışan başarıyla eklendi!");
         })
         .catch(err => console.error(err));
-
     }
-    
-
-
     ui.clearInputs();
     e.preventDefault();
 }
 
 function getAllEmployees(){
-
         request.get()
         .then(employees => {
             ui.addAllEmployeesToUI(employees);
-
         })
         .catch(err => console.error(err));
-
 }
 
 function deleteEmployee(targetEmployee){
@@ -117,18 +85,17 @@ function updateEmployeeController(targetEmployee){
     else {
         updateState = null;
         }
-    
 }
 
 function updateEmployee(){
-
-    if (updateState){
+    if (updateState){   // bu şekildeki yazım, !== null anlamına gelir. null değilse çalıştırır
         const data = {name:nameInput.value.trim(),department:departmentInput.value.trim(),salary:Number(salaryInput.value.trim())};
 
         request.put(updateState.updateId,data)
         .then(response => {
             ui.updateEmployeeOnUI(response,updateState.updateParent);
             ui.clearInputs();
+            updateState = null;
             ui.displayMessage("info","Çalışan başarıyla güncellendi!");
         })
         .catch(err => console.error(err));

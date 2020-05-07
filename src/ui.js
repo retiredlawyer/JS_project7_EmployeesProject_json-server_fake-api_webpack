@@ -10,7 +10,6 @@ export class UI {
     }
 
     addAllEmployeesToUI(employees){
-
         let result = "";
         employees.forEach(employee => {
             result += `
@@ -25,7 +24,6 @@ export class UI {
             `
         });
         this.employeesList.innerHTML = result;
-
     }
 
     clearInputs(){
@@ -35,7 +33,6 @@ export class UI {
     }
 
     addNewEmployeeToUI(newEmployee){
-
         this.employeesList.innerHTML += `
             <tr>
                 <td>${newEmployee.name}</td>
@@ -81,9 +78,7 @@ export class UI {
             <td> <a href="#" id = "delete-employee" class= "btn btn-danger">Sil</a></td>
         </tr>
         `;
-
         this.updateButton.style.display = "none";
-
     }
 
     displayMessage(type,message){
